@@ -1,0 +1,36 @@
+def main():
+    magazalar = {}
+    while True:
+        magaza_adi = input("Mağaza adı: ")
+        if not magaza_adi:
+            break
+        satici_adi = input("Satıcının adı: ")
+        satici_cinsi = input("Satıcının cinsi: ")
+        satis_tutari = int(input("Satış tutarı: "))
+        print("")
+
+        if magaza_adi not in magazalar:
+            magazalar[magaza_adi] = []
+
+        magazalar[magaza_adi].append(Magaza(magaza_adi, satici_adi, satici_cinsi))
+        for i in magazalar[magaza_adi]:
+            if i.get_satici_cinsi() == satici_cinsi and i.get_satici_adi() == satici_adi:
+                i.set_satis_tutari(i.get_satis_tutari() + satis_tutari)
+                break
+    for magaza in magazalar:
+        print(f"{magaza} mağazası:")
+        toplam = 0
+        satilan_urunler = []
+        for i in magazalar[magaza]:
+            print(i)
+            toplam += int(i.get_satis_tutari())
+            satilan_urunler.append(i.get_satici_cinsi())
+        print(f"Toplam {toplam} TL tutarında satış yapılmıştır.")
+
+        print("Satılan Ürünler:")
+        for i in satilan_urunler:
+            print(i)
+        print("")
+
+if __name__ == '__main__':
+    main()
