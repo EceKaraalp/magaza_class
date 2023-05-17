@@ -1,0 +1,2 @@
+    def __str__(self):
+        return f"{self.get_magaza_adi()} mağazasında {self.get_satici_cinsi()} cinsinden {self.get_satici_adi()} tarafından {self.get_satis_tutari()} TL tutarında satış yapılmıştır."
